@@ -36,10 +36,10 @@ int main (int argc, char *argv[]){
     multiply (A, B, C, side);
 
     /* Simple output check */
-    printf("C[0][0] = %6.2f\n",C[0]);
+    //printf("C[0][0] = %6.2f\n",C[0]);
 
     /* Matrix deallocation */
-    deallocate(&A, &B, &C);
+    //deallocate(&A, &B, &C);
 
     return 0;
 }
@@ -72,10 +72,10 @@ void multiply (float * A, float * B, float * C, size_t side){
     size_t i, j, k, jj, kk;
     for (jj = 0; jj < side; jj += STEP) {
         for (kk = 0; kk < side; kk += STEP) {
-            for (i = 0; i < side; ++i) {
-                for (j = jj; j < jj+STEP; ++j) {
+			for (i = 0; i < side; ++i) {
+				for (j = jj; j < jj+STEP; ++j) {
                     float r = 0.0;
-                    for (k = kk; k < kk+STEP; ++k) {
+					for (k = kk; k < kk+STEP; ++k) {
                         r += A[i*side+k] * B[k*side+j];
                     }
                     C[i*side+j] += r;
